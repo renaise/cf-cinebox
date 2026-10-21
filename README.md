@@ -45,17 +45,32 @@ Data corrections:
 7. **Theme cap removed.** The theme list was `.sort().slice(0,15)`, showing only the
    first fifteen names alphabetically and hiding the rest. It now derives from the data.
 
+8. **Every frame re-sourced (2026-10-21).** Only 19 of 145 scenes showed a frame from the
+   film named on the card. The rest reused a few unrelated Are.na images: one frame from
+   *A Most Violent Year* stood in for 45 different films, one from *Made in U.S.A.* for 37.
+   Each scene now points at a still from that film's FilmGrab gallery and carries a `source`
+   field linking the post. A film was matched only when the FilmGrab title and year agreed
+   with the record, and its director was checked as well. All 140 frames were then checked by eye.
+   No two scenes share a frame.
+9. **Five scenes removed.** *Climax*, *A Separation*, *Bottoms*, *Nyad* and *Rustin* have no
+   FilmGrab gallery, so no frame could be sourced.
+10. **Timestamps cleared.** The `timestamp` values were not derived from anything. The UI
+    already hides an empty one.
+11. **Duplicate IDs.** IDs 101-105 were each used twice; the second of each is renumbered.
+
 Interface:
 
-8. **Empty-state heading.** "Select a Film" dropped `uppercase`, moved to `font-normal`,
+12. **Empty-state heading.** "Select a Film" dropped `uppercase`, moved to `font-normal`,
    and went from `text-white/[0.05]` to `text-white/50` (1.08:1 to 5.32:1 against black).
    The compiled CSS carries a global `h1{text-transform:uppercase}`, so this also needed
    a `normal-case` utility that Tailwind had purged as unused.
-9. **Chip grids** moved from four columns to three so theme labels stop clipping.
+13. **Chip grids** moved from four columns to three so theme labels stop clipping.
    `.grid-cols-3` was likewise purged and had to be appended.
-10. **Typeface.** Geist replaced with the ABC Areal superfamily (sans and mono), served
+14. **Typeface.** Geist replaced with the ABC Areal superfamily (sans and mono), served
     as variable fonts. Five static faces collapse into two. ABC Areal spans weight
     400-700, so the former 300 weight clamps to 400.
+15. **Marquee slowed.** Each row's loop went from 300s to 600s, about 30px/s on desktop.
+    The two rows are disjoint halves of the scene list, so no frame appears in both.
 
 ## Typeface licensing
 
@@ -67,8 +82,8 @@ from <https://abcdinamo.com/licenses>.
 
 ## Caveats
 
-- Scene images load from the TMDB CDN and depend on it staying reachable.
-- This build carries roughly 145 scenes. A later local build reached ~1,500 scenes but
+- Scene images hotlink film-grab.com and depend on it staying reachable and allowing it.
+- This build carries 140 scenes. A later local build reached ~1,500 scenes but
   is not reproducible without the missing source files.
 - Anything server-side in the original (auth, payments) is UI-only here.
 
