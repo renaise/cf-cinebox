@@ -110,3 +110,5 @@ from <https://abcdinamo.com/licenses>.
 
 Recovering a buildable project means restoring the missing source files. Until then,
 treat this repository as an artifact, not a codebase.
+
+20. Each Browse card now carries a row directly under the title: the distributor's logo (name as text where no clean logo exists, including Sony Pictures, Weinstein and GKIDS, whose marks are illegible at card size), the runtime, and the number of stills of that film in the collection. The still count is computed from the scene data, not stored. Runtimes come from each film's English Wikipedia infobox (first listed, theatrical cut), cross-checked against Wikidata; 17 more logos come from Wikimedia Commons, cropped to their drawn bounds. "Magnolia" was merged into "Magnolia Pictures".
