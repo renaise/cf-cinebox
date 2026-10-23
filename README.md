@@ -58,19 +58,38 @@ Data corrections:
     already hides an empty one.
 11. **Duplicate IDs.** IDs 101-105 were each used twice; the second of each is renumbered.
 
+12. **Distributors verified (2026-10-23).** `studio` means the film's original US
+    distributor. Each value was checked against the film's Box Office Mojo domestic
+    distributor (looked up by IMDb ID through Wikidata), and against Wikipedia where Mojo
+    has no entry. Twelve were corrected: *Amélie* → Miramax, *Portrait of a Lady on Fire* → Neon,
+    *The Handmaiden* → Magnolia Pictures, *Memories of Murder* → Palm Pictures,
+    *The Neon Demon* → Broad Green Pictures, *Burning* and *Monster* → Well Go USA,
+    *A Girl Walks Home Alone at Night* → Kino Lorber, *Blue Velvet* → De Laurentiis
+    Entertainment Group, *Possession* → Limelight International, *Napoleon* → Columbia
+    Pictures, *Evil Does Not Exist* → Janus Films. *Stalker* (Mosfilm) and *Cure* (Daiei)
+    have no recorded original US release and carry the producing studio.
+
 Interface:
 
-12. **Empty-state heading.** "Select a Film" dropped `uppercase`, moved to `font-normal`,
+13. **Empty-state heading.** "Select a Film" dropped `uppercase`, moved to `font-normal`,
    and went from `text-white/[0.05]` to `text-white/50` (1.08:1 to 5.32:1 against black).
    The compiled CSS carries a global `h1{text-transform:uppercase}`, so this also needed
    a `normal-case` utility that Tailwind had purged as unused.
-13. **Chip grids** moved from four columns to three so theme labels stop clipping.
+14. **Chip grids** moved from four columns to three so theme labels stop clipping.
    `.grid-cols-3` was likewise purged and had to be appended.
-14. **Typeface.** Geist replaced with the ABC Areal superfamily (sans and mono), served
+15. **Typeface.** Geist replaced with the ABC Areal superfamily (sans and mono), served
     as variable fonts. Five static faces collapse into two. ABC Areal spans weight
     400-700, so the former 300 weight clamps to 400.
-15. **Marquee slowed.** Each row's loop went from 300s to 600s, about 30px/s on desktop.
+16. **Marquee slowed.** Each row's loop went from 300s to 600s, about 30px/s on desktop.
     The two rows are disjoint halves of the scene list, so no frame appears in both.
+17. **Distributor shown.** Each film card in Browse carries its distributor on its own line,
+    and the marquee hover reads director · year · distributor.
+18. **Distributor logos.** The text line "A24 · Criterion · Neon · and more" became a row of
+    the eight distributors with the most scenes: A24, Searchlight, Neon, Warner Bros.,
+    Paramount, Netflix, IFC Films and Focus Features. Criterion no longer appears in the data.
+    The SVGs are from Wikimedia Commons and render white through a CSS filter. Warner uses
+    the single-color file so the shield's cut-out survives the filter.
+19. **Search caret removed.** A decorative `|` sat in front of the hero search input.
 
 ## Typeface licensing
 
